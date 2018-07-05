@@ -101,7 +101,12 @@ def main():
     with open('results.csv') as data:
         results, runners = parse_data(data)
 
-    plt.plot(numpy.linspace(1, 128, 128), numpy.linspace(1, 128, 128))
+    result_times = []
+
+    for r in results:
+        result_times.append(r.time.get_time())
+    
+    plt.plot(numpy.linspace(1, 128, 128), result_times)
     plt.show()
 
 
